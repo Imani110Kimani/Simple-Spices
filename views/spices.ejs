@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Spices - Simple Spices</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Simple Spices</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/spices">Spices</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/newsletter">Newsletter</a>
+      <a href="/testimonials">Testimonials</a>
+      <a href="/blog">Blog</a>
+    </nav>
+  </header>
+  <main>
+    <section class="spices-catalog">
+      <h2>Our Spices</h2>
+      <input type="text" id="spiceSearch" placeholder="Search spices by name..." style="width: 100%; max-width: 400px; margin: 1rem auto 2rem auto; display: block; padding: 0.7rem; border-radius: 8px; border: 1px solid #ffd700; background: #181818; color: #ffd700; font-size: 1.1rem;">
+      <div class="spice-list" id="spiceList">
+        <% spices.forEach(function(spice) { %>
+        <a href="/spices/<%= spice.name.toLowerCase() %>" class="spice-card" data-name="<%= spice.name.toLowerCase() %>" style="text-decoration:none;">
+          <img src="<%= spice.image %>" alt="<%= spice.name %>">
+          <h4><%= spice.name %></h4>
+          <p><%= spice.description %></p>
+          <ul>
+            <li><strong>Origin:</strong> <%= spice.origin %></li>
+            <li><strong>Benefits:</strong> <%= spice.benefits %></li>
+          </ul>
+        </a>
+        <% }); %>
+      </div>
+    </section>
+  </main>
+  <script>
+    const searchInput = document.getElementById('spiceSearch');
+    const spiceCards = document.querySelectorAll('.spice-card');
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      spiceCards.forEach(card => {
+        const name = card.getAttribute('data-name');
+        if (name.includes(query)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+  <footer>
+    <p>&copy; 2026 Simple Spices. All rights reserved.</p>
+  </footer>
+</body>
+</html>

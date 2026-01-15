@@ -1,0 +1,192 @@
+body {
+  font-family: 'Georgia', serif;
+  background: #111;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #181818;
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+  border-bottom: 2px solid #bfa76a;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin: 0;
+  letter-spacing: 2px;
+  color: #fff;
+}
+nav {
+  margin-top: 0.5rem;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #bfa76a;
+}
+.hero {
+  background: linear-gradient(90deg, #181818 60%, #111 100%);
+  padding: 2.5rem 1rem 2rem 1rem;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+  margin-bottom: 2rem;
+}
+  .hero h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+  }
+.hero p {
+  font-size: 1.2rem;
+  color: #fff;
+}
+  .featured-spices, .spices-catalog {
+    max-width: 1100px;
+    margin: 0 auto 2rem auto;
+    padding: 1rem;
+  }
+  .spice-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .spice-card {
+      background: #181818;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(191, 167, 106, 0.08);
+      padding: 1.2rem;
+      width: 240px;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.3s;
+      border: 1px solid #222;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.7s ease forwards;
+    }
+
+@media (max-width: 900px) {
+  .spice-list {
+    gap: 1.2rem;
+  }
+  .spice-card {
+    width: 180px;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  nav a {
+    font-size: 1rem;
+    margin: 0 0.5rem;
+  }
+  .hero {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    border-radius: 0 0 16px 16px;
+  }
+  .featured-spices, .spices-catalog {
+    padding: 0.5rem;
+  }
+  .spice-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .spice-card {
+    width: 95vw;
+    max-width: 340px;
+    padding: 0.7rem;
+  }
+  .spice-card img {
+    width: 70px;
+    height: 70px;
+  }
+  .button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+  .contact-section, .newsletter-section, .spice-detail {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+}
+.spice-card:hover {
+  box-shadow: 0 4px 24px rgba(191, 167, 106, 0.18);
+  transform: translateY(-8px) scale(1.03);
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.spice-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.8rem;
+  border: 2px solid #ffd700;
+}
+  .spice-card h4 {
+    margin: 0.5rem 0 0.3rem 0;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+  }
+  .spice-card p {
+    font-size: 1rem;
+    color: #fff;
+  }
+  .spice-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.95rem;
+    color: #fff;
+    color: #fff;
+  }
+  .button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.7rem 2.2rem;
+    background: #ffd700;
+    color: #181818;
+    border-radius: 22px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(191, 167, 106, 0.08);
+  }
+  .button:hover {
+    background: #bfa76a;
+    color: #111;
+    transform: scale(1.04);
+    box-shadow: 0 4px 16px rgba(191, 167, 106, 0.18);
+  }
+  footer {
+    background: #181818;
+    text-align: center;
+    padding: 1.2rem 0 1rem 0;
+    border-top: 2px solid #bfa76a;
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 2rem;
+  }

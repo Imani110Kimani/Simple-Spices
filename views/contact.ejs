@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Simple Spices</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Simple Spices</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/spices">Spices</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/newsletter">Newsletter</a>
+      <a href="/testimonials">Testimonials</a>
+      <a href="/blog">Blog</a>
+    </nav>
+  </header>
+  <main>
+    <section class="contact-section" style="max-width: 500px; margin: 2rem auto; background: #181818; border-radius: 18px; box-shadow: 0 2px 12px rgba(191, 167, 106, 0.08); padding: 2rem;">
+      <h2 style="color:#ffd700; text-align:center;">Contact Us</h2>
+      <form method="POST" action="/contact" style="display:flex; flex-direction:column; gap:1.2rem;">
+        <input type="text" name="name" placeholder="Your Name" required style="padding:0.7rem; border-radius:8px; border:1px solid #ffd700; background:#111; color:#fff;">
+        <input type="email" name="email" placeholder="Your Email" required style="padding:0.7rem; border-radius:8px; border:1px solid #ffd700; background:#111; color:#fff;">
+        <textarea name="message" placeholder="Your Message" rows="5" required style="padding:0.7rem; border-radius:8px; border:1px solid #ffd700; background:#111; color:#fff;"></textarea>
+        <button type="submit" class="button" style="width:100%;">Send Message</button>
+      </form>
+      <% if (success) { %>
+        <p style="color:#ffd700; text-align:center; margin-top:1rem;">Thank you for contacting us!</p>
+      <% } %>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Simple Spices. All rights reserved.</p>
+  </footer>
+</body>
+</html>

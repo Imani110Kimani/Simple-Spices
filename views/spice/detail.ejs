@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= spice.name %> - Simple Spices</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Simple Spices</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/spices">Spices</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/newsletter">Newsletter</a>
+      <a href="/testimonials">Testimonials</a>
+      <a href="/blog">Blog</a>
+    </nav>
+  </header>
+  <main>
+    <section class="spice-detail" style="max-width: 700px; margin: 2rem auto; background: #181818; border-radius: 18px; box-shadow: 0 2px 12px rgba(191, 167, 106, 0.08); padding: 2rem;">
+      <div style="text-align:center;">
+        <img src="<%= spice.image %>" alt="<%= spice.name %>" style="width: 140px; height: 140px; object-fit: cover; border-radius: 50%; border: 3px solid #ffd700; margin-bottom: 1.2rem;">
+        <h2 style="color:#ffd700;"><%= spice.name %></h2>
+      </div>
+      <p style="font-size:1.2rem; color:#bfa76a;"><%= spice.description %></p>
+      <ul style="font-size:1.1rem; color:#f5e9d6;">
+        <li><strong>Origin:</strong> <%= spice.origin %></li>
+        <li><strong>Benefits:</strong> <%= spice.benefits %></li>
+      </ul>
+      <% if (spice.history) { %>
+      <div style="margin-top:1.5rem;">
+        <h3 style="color:#ffd700;">History</h3>
+        <p><%= spice.history %></p>
+      </div>
+      <% } %>
+      <% if (spice.recipes && spice.recipes.length) { %>
+      <div style="margin-top:1.5rem;">
+        <h3 style="color:#ffd700;">Sample Recipes</h3>
+        <ul>
+          <% spice.recipes.forEach(function(recipe) { %>
+            <li><%= recipe %></li>
+          <% }); %>
+        </ul>
+      </div>
+      <% } %>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Simple Spices. All rights reserved.</p>
+  </footer>
+</body>
+</html>

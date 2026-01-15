@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Spices</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Simple Spices</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/spices">Spices</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/newsletter">Newsletter</a>
+      <a href="/testimonials">Testimonials</a>
+      <a href="/blog">Blog</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero-image-welcome" style="position:relative; min-height:340px; display:flex; align-items:center; justify-content:center; background: #000; border-radius: 0 0 30px 30px; overflow:hidden; margin-bottom:2.5rem;">
+      <img src="/images/hero-spices.jpg" alt="Welcome to Simple Spices" style="width:100%; height:340px; object-fit:cover; filter: blur(2px) brightness(0.7); display:block; position:absolute; top:0; left:0; z-index:1;">
+      <div style="position:relative; z-index:2; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <h2 class="hero-animated-text" style="color:#fff; font-size:2.5rem; text-shadow:0 4px 24px #000; margin-bottom:0.7rem;">Welcome to Simple Spices</h2>
+        <p class="hero-animated-text" style="color:#fff; font-size:1.3rem; text-shadow:0 2px 12px #000; max-width:600px; text-align:center;">Experience the vibrant world of spices. Discover, taste, and elevate your cooking with the finest flavors from around the globe.</p>
+      </div>
+    </section>
+    <style>
+      .hero-image-welcome .hero-animated-text {
+        opacity: 0;
+        transform: translateY(40px);
+        animation: heroTextFadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) forwards;
+      }
+      .hero-image-welcome .hero-animated-text:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .hero-image-welcome .hero-animated-text:nth-child(2) {
+        animation-delay: 0.6s;
+      }
+      @keyframes heroTextFadeInUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+    <section class="featured-spices">
+      <h3>Featured Spices</h3>
+      <div class="spice-list">
+        <% spices.forEach(function(spice) { %>
+          <a href="/spices/<%= spice.name.toLowerCase() %>" class="spice-card" style="text-decoration:none;">
+            <% if (spice.name.toLowerCase() === 'cinnamon') { %>
+              <img src="/images/cinnamon.jpg" alt="Cinnamon">
+            <% } else if (spice.name.toLowerCase() === 'turmeric') { %>
+              <img src="/images/turmeric.jpg" alt="Turmeric">
+            <% } else if (spice.name.toLowerCase() === 'cardamom') { %>
+              <img src="/images/cardamom.jpg" alt="Cardamom">
+            <% } else { %>
+              <img src="<%= spice.image %>" alt="<%= spice.name %>">
+            <% } %>
+            <h4><%= spice.name %></h4>
+            <p><%= spice.description %></p>
+          </a>
+        <% }); %>
+      </div>
+      <a class="button" href="/spices">View All Spices</a>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Simple Spices. All rights reserved.</p>
+  </footer>
+</body>
+</html>
