@@ -1,37 +1,42 @@
-// Blog page
-app.get('/blog', (req, res) => {
-  res.render('blog');
-});
-// Testimonials page
-app.get('/testimonials', (req, res) => {
-  res.render('testimonials');
-});
-// Newsletter signup
-app.get('/newsletter', (req, res) => {
-  res.render('newsletter', { success: false });
-});
-
-app.post('/newsletter', (req, res) => {
-  // In a real app, you would store the email here
-  res.render('newsletter', { success: true });
-});
 const express = require('express');
 const path = require('path');
 
 const app = express();
-
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
+// Blog anchor redirect
+app.get('/blog', (req, res) => {
+  res.redirect('/#blog');
+});
+// Testimonials anchor redirect
+app.get('/testimonials', (req, res) => {
+  res.redirect('/#testimonials');
+});
+// Newsletter anchor redirect
+app.get('/newsletter', (req, res) => {
+  res.redirect('/#newsletter');
+});
+
+app.post('/newsletter', (req, res) => {
+  // In a real app, you would store the email here
+  res.render('newsletter', { success: true });
+});
+
 
 const spices = require('./spices');
 
 
 app.get('/', (req, res) => {
-  res.render('index', { spices: spices.slice(0, 3) });
+  res.render('index', {
+    spices,
+    loginError: '',
+    showLoginModal: req.query.login === '1',
+    emailValue: ''
+  });
 });
 
 // Spice detail page
@@ -44,17 +49,16 @@ app.get('/spices/:name', (req, res) => {
 });
 
 app.get('/spices', (req, res) => {
-  res.render('spices', { spices });
+  res.redirect('/#spices');
 });
-
 
 app.get('/about', (req, res) => {
-  res.render('about');
+  res.redirect('/#about');
 });
 
-// Contact form
+// Contact form anchor redirect
 app.get('/contact', (req, res) => {
-  res.render('contact', { success: false });
+  res.redirect('/#contact');
 });
 
 app.post('/contact', (req, res) => {
@@ -62,7 +66,50 @@ app.post('/contact', (req, res) => {
   res.render('contact', { success: true });
 });
 
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.render('index', {
+      spices,
+      loginError: 'Please enter both email and password.',
+      showLoginModal: true,
+      emailValue: email || ''
+    });
+  }
+
+  const validUser = email === 'hello@aroha.com' && password === 'spice2026';
+
+  if (!validUser) {
+    return res.render('index', {
+      spices,
+      loginError: 'Invalid email or password. Please try again.',
+      showLoginModal: true,
+      emailValue: email
+    });
+  }
+
+  res.redirect('/#spices');
+});
+
+app.get('/signup', (req, res) => {
+  res.render('signup', { success: false, formData: {} });
+});
+
+app.post('/signup', (req, res) => {
+  const { name, email, password } = req.body;
+  const success = Boolean(name && email && password);
+
+  res.render('signup', {
+    success,
+    formData: {
+      name: name || '',
+      email: email || ''
+    }
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Simple Spices website running on port ${PORT}`);
+  console.log(`Aroha Spices and Condiment website running on port ${PORT}`);
 });

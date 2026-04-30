@@ -3,26 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Spices - Simple Spices</title>
+  <title>All Spices - Aroha Spices and Condiment</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <header>
-    <h1>Simple Spices</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/spices">Spices</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-      <a href="/newsletter">Newsletter</a>
-      <a href="/testimonials">Testimonials</a>
-      <a href="/blog">Blog</a>
-    </nav>
+    <h1>Aroha Spices and Condiment</h1>
+    <nav>\n      <a href="/">Home</a>\n      <a href="/#spices">Spices</a>\n      <a href="/#about">About</a>\n      <a href="/#contact">Contact</a>\n      <a href="/#newsletter">Newsletter</a>\n      <a href="/#testimonials">Testimonials</a>\n      <a href="/#blog">Blog</a>\n    </nav>
   </header>
   <main>
     <section class="spices-catalog">
       <h2>Our Spices</h2>
-      <input type="text" id="spiceSearch" placeholder="Search spices by name..." style="width: 100%; max-width: 400px; margin: 1rem auto 2rem auto; display: block; padding: 0.7rem; border-radius: 8px; border: 1px solid #ffd700; background: #181818; color: #ffd700; font-size: 1.1rem;">
+      <input type="text" id="spiceSearch" placeholder="Search spices by name..." style="width: 100%; max-width: 400px; margin: 1rem auto 2rem auto; display: block; padding: 0.7rem; border-radius: 8px; border: 1px solid #997950; background: #2f1b13; color: #997950; font-size: 1.1rem;">
       <div class="spice-list" id="spiceList">
         <% spices.forEach(function(spice) { %>
         <a href="/spices/<%= spice.name.toLowerCase() %>" class="spice-card" data-name="<%= spice.name.toLowerCase() %>" style="text-decoration:none;">
@@ -55,3 +47,5 @@
   </script>
 </body>
 </html>
+
+

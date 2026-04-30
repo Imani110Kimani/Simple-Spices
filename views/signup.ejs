@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Aroha Spices and Condiment</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <a href="/" class="brand-logo">
+        <img src="/images/Aroha logo.png" alt="Aroha Spices and Condiment logo">
+        <span class="brand-name">Aroha Spices<br>and Condiment</span>
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#spices">Spices</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/#blog">Blog</a>
+      </nav>
+      <a href="/" class="button header-cta">Back to Home</a>
+    </div>
+  </header>
+  <main>
+    <section class="page-section signup-card">
+      <div class="section-title">
+        <span></span>
+        <h2>Create Your Account</h2>
+        <span></span>
+      </div>
+      <p class="section-copy">Sign up to access exclusive offers, new spice drops, and easy checkout.</p>
+      <% if (success) { %>
+        <div class="login-error" style="background: rgba(153, 121, 80, 0.14); color: #fff; border-color: rgba(153, 121, 80, 0.35);">
+          Thanks for signing up, <%= formData.name %>! You can now return to the login modal on the homepage.
+        </div>
+      <% } %>
+      <form action="/signup" method="post" class="auth-form">
+        <input type="text" name="name" placeholder="Full name" value="<%= formData.name || '' %>" required>
+        <input type="email" name="email" placeholder="Email address" value="<%= formData.email || '' %>" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit" class="button">Create Account</button>
+      </form>
+      <p class="auth-link">Already have an account? <a href="/?login=1">Log in</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Aroha Spices and Condiment. All rights reserved.</p>
+  </footer>
+</body>
+</html>

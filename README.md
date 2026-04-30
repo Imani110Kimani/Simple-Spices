@@ -1,6 +1,6 @@
-# Simple Spices
+# Aroha Spices and Condiment
 
-An elegant and classy Node.js website for discovering the world of spices.
+An elegant and classy Node.js website for discovering the world of spices and condiments.
 
 ## Features
 - Home, Spices Catalog, and About pages

@@ -3,51 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Spices</title>
+  <title>Aroha Spices and Condiment</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <header>
-    <h1>Simple Spices</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/spices">Spices</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-      <a href="/newsletter">Newsletter</a>
-      <a href="/testimonials">Testimonials</a>
-      <a href="/blog">Blog</a>
-    </nav>
+    <div class="header-top">
+      <a href="/" class="brand-logo">
+        <img src="/images/Aroha logo.png" alt="Aroha Spices and Condiment logo">
+        <span class="brand-name">Aroha Spices<br>and Condiment</span>
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#spices">Spices</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/#blog">Blog</a>
+      </nav>
+      <a href="#" class="button header-cta open-login">Shop Now</a>
+    </div>
   </header>
   <main>
-    <section class="hero-image-welcome" style="position:relative; min-height:340px; display:flex; align-items:center; justify-content:center; background: #000; border-radius: 0 0 30px 30px; overflow:hidden; margin-bottom:2.5rem;">
-      <img src="/images/hero-spices.jpg" alt="Welcome to Simple Spices" style="width:100%; height:340px; object-fit:cover; filter: blur(2px) brightness(0.7); display:block; position:absolute; top:0; left:0; z-index:1;">
-      <div style="position:relative; z-index:2; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-        <h2 class="hero-animated-text" style="color:#fff; font-size:2.5rem; text-shadow:0 4px 24px #000; margin-bottom:0.7rem;">Welcome to Simple Spices</h2>
-        <p class="hero-animated-text" style="color:#fff; font-size:1.3rem; text-shadow:0 2px 12px #000; max-width:600px; text-align:center;">Experience the vibrant world of spices. Discover, taste, and elevate your cooking with the finest flavors from around the globe.</p>
+    <section id="home" class="hero">
+      <img src="/images/hero-spices.jpg" alt="Welcome to Aroha Spices and Condiment">
+      <div class="hero-content">
+        <h2 class="hero-title">Savor the Heat of Aroha</h2>
+        <p class="hero-copy">Experience the rich world of spices and condiments. Discover bold flavors, crafted blends, and curated ingredients made to elevate every meal.</p>
+        <a href="#" class="button hero-cta open-login">Explore the collection</a>
       </div>
     </section>
-    <style>
-      .hero-image-welcome .hero-animated-text {
-        opacity: 0;
-        transform: translateY(40px);
-        animation: heroTextFadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) forwards;
-      }
-      .hero-image-welcome .hero-animated-text:nth-child(1) {
-        animation-delay: 0.2s;
-      }
-      .hero-image-welcome .hero-animated-text:nth-child(2) {
-        animation-delay: 0.6s;
-      }
-      @keyframes heroTextFadeInUp {
-        from { opacity: 0; transform: translateY(40px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    </style>
-    <section class="featured-spices">
-      <h3>Featured Spices</h3>
+    <section id="spices" class="featured-spices page-section">
+      <div class="section-title">
+        <span></span>
+        <h2>Featured Spices</h2>
+        <span></span>
+      </div>
+      <p class="section-copy">Aroha's signature spices are selected for their aroma, quality, and ability to transform dishes with just a pinch.</p>
       <div class="spice-list">
-        <% spices.forEach(function(spice) { %>
+        <% spices.slice(0, 3).forEach(function(spice) { %>
           <a href="/spices/<%= spice.name.toLowerCase() %>" class="spice-card" style="text-decoration:none;">
             <% if (spice.name.toLowerCase() === 'cinnamon') { %>
               <img src="/images/cinnamon.jpg" alt="Cinnamon">
@@ -63,11 +58,159 @@
           </a>
         <% }); %>
       </div>
-      <a class="button" href="/spices">View All Spices</a>
+      <a class="button" href="/#spices">Browse the collection</a>
+    </section>
+    <section id="about" class="about page-section">
+      <div class="section-title">
+        <span></span>
+        <h2>About Aroha Spices and Condiment</h2>
+        <span></span>
+      </div>
+      <p class="section-copy">Aroha is dedicated to bringing you the finest spices and condiments from across the globe. Our range is carefully sourced for freshness, flavor, and culinary inspiration.</p>
+      <p class="section-copy">From cozy kitchen staples to exotic pantry treasures, we make it easy to craft memorable meals with premium ingredients.</p>
+    </section>
+    <section class="spices-catalog page-section">
+      <div class="section-title">
+        <span></span>
+        <h2>Our Full Collection</h2>
+        <span></span>
+      </div>
+      <p class="section-copy">Explore every spice in our catalog and find your next flavor adventure.</p>
+      <div class="spice-list">
+        <% spices.forEach(function(spice) { %>
+          <a href="/spices/<%= spice.name.toLowerCase() %>" class="spice-card" style="text-decoration:none;">
+            <img src="<%= spice.image %>" alt="<%= spice.name %>">
+            <h4><%= spice.name %></h4>
+            <p><%= spice.description %></p>
+          </a>
+        <% }); %>
+      </div>
+    </section>
+    <section id="testimonials" class="testimonials-section page-section" style="max-width: 900px; margin: 0 auto 2rem auto; padding: 2rem;">
+      <div class="section-title">
+        <span></span>
+        <h2>Testimonials</h2>
+        <span></span>
+      </div>
+      <p class="section-copy">What home cooks and chefs say after discovering Aroha's curated spice collection.</p>
+      <div class="testimonial">
+        <p>“The quality of these spices is unmatched. My curries have never tasted better!”</p>
+        <span>— Priya S.</span>
+      </div>
+      <div class="testimonial">
+        <p>“Fast delivery and beautiful packaging. I love the variety!”</p>
+        <span>— James L.</span>
+      </div>
+      <div class="testimonial">
+        <p>“The saffron is so fragrant and fresh. Highly recommend Aroha Spices and Condiment!”</p>
+        <span>— Fatima K.</span>
+      </div>
+    </section>
+    <section id="newsletter" class="newsletter-section page-section" style="max-width: 500px; margin: 0 auto 2rem auto; padding: 2rem;">
+      <div class="section-title">
+        <span></span>
+        <h2>Newsletter</h2>
+        <span></span>
+      </div>
+      <p class="section-copy">Stay updated with new spice drops, recipe ideas, and seasonal offers delivered straight to your inbox.</p>
+      <form method="POST" action="/newsletter" style="display:flex; flex-direction:column; gap:1.2rem;">
+        <input type="email" name="email" placeholder="Your Email" required style="padding:0.9rem; border-radius:10px; border:1px solid #997950; background: rgba(47, 27, 19, 0.9); color:#fff;">
+        <button type="submit" class="button" style="width:100%;">Subscribe</button>
+      </form>
+    </section>
+    <section id="contact" class="contact-section page-section" style="max-width: 700px; margin: 0 auto 2rem auto; padding: 2rem;">
+      <div class="section-title">
+        <span></span>
+        <h2>Contact</h2>
+        <span></span>
+      </div>
+      <p class="section-copy">Have a question? Send us a message and we’ll help you find the perfect spice or condiment for your dish.</p>
+      <form method="POST" action="/contact" style="display:flex; flex-direction:column; gap:1.2rem;">
+        <input type="text" name="name" placeholder="Your Name" required style="padding:0.9rem; border-radius:10px; border:1px solid #997950; background: rgba(47, 27, 19, 0.9); color:#fff;">
+        <input type="email" name="email" placeholder="Your Email" required style="padding:0.9rem; border-radius:10px; border:1px solid #997950; background: rgba(47, 27, 19, 0.9); color:#fff;">
+        <textarea name="message" placeholder="Your Message" rows="5" required style="padding:0.9rem; border-radius:10px; border:1px solid #997950; background: rgba(47, 27, 19, 0.9); color:#fff;"></textarea>
+        <button type="submit" class="button" style="width:100%;">Send Message</button>
+      </form>
+    </section>
+    <section id="blog" class="blog-section page-section" style="max-width: 900px; margin: 0 auto 2rem auto; padding: 2rem;">
+      <div class="section-title">
+        <span></span>
+        <h2>Blog</h2>
+        <span></span>
+      </div>
+      <p class="section-copy">Inspiration and tips for using spices in every meal, from everyday favorites to elevated recipes.</p>
+      <article style="margin-bottom:2rem;">
+        <h3 style="color:#997950;">5 Ways to Use Turmeric in Your Cooking</h3>
+        <p style="color:#3c2a20;">Turmeric is a golden spice with a warm, earthy flavor. Try it in curries, smoothies, rice, roasted veggies, or even tea for a healthful boost!</p>
+      </article>
+      <article style="margin-bottom:2rem;">
+        <h3 style="color:#997950;">The Secret to Perfect Chai: Cardamom</h3>
+        <p style="color:#3c2a20;">Cardamom adds a sweet, floral note to chai. Crush a few pods and simmer with black tea, milk, and sugar for an authentic taste.</p>
+      </article>
+      <article>
+        <h3 style="color:#997950;">How to Store Spices for Maximum Freshness</h3>
+        <p style="color:#3c2a20;">Keep your spices in airtight containers, away from heat and light. Whole spices last longer than ground, so buy whole and grind as needed!</p>
+      </article>
     </section>
   </main>
+  <div id="loginModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close">&times;</button>
+      <h3>Login to Aroha</h3>
+      <p>Sign in to unlock exclusive offers and continue to shopping.</p>
+      <% if (typeof loginError !== 'undefined' && loginError) { %>
+        <div class="login-error"><%= loginError %></div>
+      <% } %>
+      <form action="/login" method="post">
+        <input type="email" name="email" placeholder="Email address" value="<%= typeof emailValue !== 'undefined' ? emailValue : '' %>" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit" class="button">Log in</button>
+      </form>
+      <p class="auth-link">Don’t have an account? <a href="/signup">Sign up</a></p>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loginButtons = document.querySelectorAll('.open-login');
+      const loginModal = document.getElementById('loginModal');
+      const closeButton = document.querySelector('.close-modal');
+
+      loginButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+          event.preventDefault();
+          loginModal.classList.add('visible');
+          loginModal.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      if (<%= typeof showLoginModal !== 'undefined' && showLoginModal ? 'true' : 'false' %>) {
+        loginModal.classList.add('visible');
+        loginModal.setAttribute('aria-hidden', 'false');
+      }
+
+      closeButton.addEventListener('click', function() {
+        loginModal.classList.remove('visible');
+        loginModal.setAttribute('aria-hidden', 'true');
+      });
+
+      loginModal.addEventListener('click', function(event) {
+        if (event.target === loginModal) {
+          loginModal.classList.remove('visible');
+          loginModal.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && loginModal.classList.contains('visible')) {
+          loginModal.classList.remove('visible');
+          loginModal.setAttribute('aria-hidden', 'true');
+        }
+      });
+    });
+  </script>
   <footer>
-    <p>&copy; 2026 Simple Spices. All rights reserved.</p>
+    <p>&copy; 2026 Aroha Spices and Condiment. All rights reserved.</p>
   </footer>
 </body>
 </html>
+
